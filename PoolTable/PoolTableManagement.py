@@ -89,6 +89,7 @@ class MenuActions:
         if total_time < 0:
             total_time += 24*60 #in case the pool place opens through midnight ex. 00:30 - 11:30 from the day before
         print(f"Total time played was {total_time//60} hours and {total_time%60} minutes. The total is ${total_cost}")
+        self.all_tables[table_number-1]["Time"] = None
         with open("TableStatuses.json", "w") as update_table:
             json.dump(self.all_tables, update_table)
         x = self.all_tables[table_number - 1]    
